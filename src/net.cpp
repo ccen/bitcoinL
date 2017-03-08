@@ -1228,7 +1228,7 @@ unsigned int pnSeed[] =
 unsigned int pnSeed[] =
 {
     0xdbdfc4a6, 
-}
+};
 
 
 

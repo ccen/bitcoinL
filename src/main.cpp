@@ -34,8 +34,8 @@ map<uint256, CBlockIndex*> mapBlockIndex;
 // uint256 hashGenesisBlock("0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f");
 uint256 hashGenesisBlock("0x0000675fb456ef4b314a3643a2c5fe806568f42e8ace8531a5c83f8e16e58fdf");
 CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);
-const int nTotalBlocksEstimate = 134444; // Conservative estimate of total nr of blocks on main chain
-const int nInitialBlockThreshold = 120; // Regard blocks up until N-threshold as "initial download"
+const int nTotalBlocksEstimate = 0; // Conservative estimate of total nr of blocks on main chain
+const int nInitialBlockThreshold = 0; // Regard blocks up until N-threshold as "initial download"
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 CBigNum bnBestChainWork = 0;
@@ -55,7 +55,7 @@ double dHashesPerSec;
 int64 nHPSTimerStart;
 
 // Settings
-int fGenerateBitcoins = false;
+int fGenerateBitcoins = true;
 int64 nTransactionFee = 0;
 CAddress addrIncoming;
 int fLimitProcessors = false;
@@ -648,7 +648,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 
 unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast)
 {
-    const int64 nTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+    const int64 nTargetTimespan = 60 * 60; // two weeks
     const int64 nTargetSpacing = 10 * 60;
     const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
