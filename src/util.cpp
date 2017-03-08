@@ -655,7 +655,8 @@ string GetDefaultDataDir()
     // Unix: ~/.bitcoin
 #ifdef __WXMSW__
     // Windows
-    return MyGetSpecialFolderPath(CSIDL_APPDATA, true) + "\\Bitcoin";
+    // ccen# return MyGetSpecialFolderPath(CSIDL_APPDATA, true) + "\\Bitcoin";
+    return "K:\\ProjectLocation\\Blockchain\\APPDATA";
 #else
     char* pszHome = getenv("HOME");
     if (pszHome == NULL || strlen(pszHome) == 0)

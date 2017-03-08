@@ -2,7 +2,7 @@
 # Distributed under the MIT/X11 software license, see the accompanying
 # file license.txt or http://www.opensource.org/licenses/mit-license.php.
 
-USE_UPNP:=0
+USE_UPNP:=1
 
 INCLUDEPATHS= \
  -I"K:\boost_1_43_0" \
@@ -59,7 +59,7 @@ OBJS= \
     cryptopp/obj/cpu.o
 
 
-all: bitcoin.exe
+all: bitcoin.exe bitcoind.exe
 
 
 obj/%.o: %.cpp $(HEADERS)
@@ -88,7 +88,7 @@ test_bitcoin: obj/test/test_bitcoin.o
 	g++ $(CFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
 
 clean:
-	-del /Q bitcoin bitcoind test_bitcoin
+	-del /Q bitcoin.exe bitcoind.exe test_bitcoin
 	-del /Q obj\*
 	-del /Q obj\nogui\*
 	-del /Q obj\test\*
