@@ -33,7 +33,8 @@ map<uint256, CBlockIndex*> mapBlockIndex;
 // ccen#
 // uint256 hashGenesisBlock("0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f");
 uint256 hashGenesisBlock("0x000ad2e1f992b0353d672f8c90f34cb958fb2f74faabfe33b562a2c3ca7e7a55");
-CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);
+CBigNum bnProofOfWorkLimit(~uint256(0) >> 1);
+
 const int nTotalBlocksEstimate = 0; // Conservative estimate of total nr of blocks on main chain
 const int nInitialBlockThreshold = 0; // Regard blocks up until N-threshold as "initial download"
 CBlockIndex* pindexGenesisBlock = NULL;
@@ -1489,7 +1490,8 @@ bool LoadBlockIndex(bool fAllowNew)
     {
         // ccen# hashGenesisBlock = uint256("0x00000007199508e34a9ff81e6ec0c477a4cccff2a4767a8eee39c11db367b008");
         hashGenesisBlock = uint256("0x0000675fb456ef4b314a3643a2c5fe806568f42e8ace8531a5c83f8e16e58fdf");
-        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 28);
+        bnProofOfWorkLimit = CBigNum(~uint256(0) >> 1);
+
         pchMessageStart[0] = 0xfa;
         pchMessageStart[1] = 0xbf;
         pchMessageStart[2] = 0xb5;
