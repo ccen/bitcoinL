@@ -32,7 +32,7 @@ map<COutPoint, CInPoint> mapNextTx;
 map<uint256, CBlockIndex*> mapBlockIndex;
 // ccen#
 // uint256 hashGenesisBlock("0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f");
-uint256 hashGenesisBlock("0x0000675fb456ef4b314a3643a2c5fe806568f42e8ace8531a5c83f8e16e58fdf");
+uint256 hashGenesisBlock("0x000ad2e1f992b0353d672f8c90f34cb958fb2f74faabfe33b562a2c3ca7e7a55");
 CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);
 const int nTotalBlocksEstimate = 0; // Conservative estimate of total nr of blocks on main chain
 const int nInitialBlockThreshold = 0; // Regard blocks up until N-threshold as "initial download"
@@ -646,10 +646,11 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     return nSubsidy + nFees;
 }
 
+// ccen# set target time
 unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast)
 {
-    const int64 nTargetTimespan = 60 * 60; // two weeks
-    const int64 nTargetSpacing = 10 * 60;
+    const int64 nTargetTimespan = 20 * 60; // two weeks
+    const int64 nTargetSpacing = 1 * 60;
     const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
     // Genesis block
@@ -1520,7 +1521,7 @@ bool LoadBlockIndex(bool fAllowNew)
 
         // Genesis block
         // ccen# const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
-        const char* pszTimestamp = "Triangle";
+        const char* pszTimestamp = "ccen@pku";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -1537,9 +1538,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nTime    = 1231006505;
         block.nBits    = 0x1d00ffff;
         block.nNonce   = 2083236893; */
-        block.nTime    = 1481092676;
-        block.nBits    = 0x1f00ffff;
-        block.nNonce   = 62395;
+        block.nTime    = 1488987669;
+        block.nBits    = 0x1f0fffff;
+        block.nNonce   = 132122;
 
         if (fTestNet)
         {
@@ -1553,7 +1554,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
         // ccen# assert(block.hashMerkleRoot == uint256("0x4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b"));
-        assert(block.hashMerkleRoot == uint256("0x0cdc3c7080a4548ecc7d7a89cb5ae87a258215283d84b9726e8b8e337ca17d3e"));
+        assert(block.hashMerkleRoot == uint256("0x7d87699846803bbe4115f36f7db580fdcffed8635937801cffe7766e1aba9cf8"));
         block.print();
         assert(block.GetHash() == hashGenesisBlock);
 
