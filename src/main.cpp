@@ -59,7 +59,7 @@ int64 nHPSTimerStart;
 int fGenerateBitcoins = true;
 int64 nTransactionFee = 0;
 CAddress addrIncoming;
-int fLimitProcessors = false;
+int fLimitProcessors = true; // ccen# saving energy
 int nLimitProcessors = 1;
 int fMinimizeToTray = true;
 int fMinimizeOnClose = true;
