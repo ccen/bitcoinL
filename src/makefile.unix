@@ -9,11 +9,12 @@ WXINCLUDEPATHS=$(shell wx-config --cxxflags)
 WXLIBS=$(shell wx-config --libs)
 
 INCLUDEPATHS= \
-   -I /home/ccen/db-4.7.25.NC/build_unix
+   -I /home/ccen/util/db-4.7.25.NC/build_unix \
+   -I /home/ccen/util/miniupnpc-1.5.20110215
 LIBPATHS= \
-   -L /home/ccen/db-4.7.25.NC/build_unix/.libs
+   -L /home/ccen/util/db-4.7.25.NC/build_unix/.libs
 
-USE_UPNP:=0
+USE_UPNP:=1
 
 DEFS=-DNOPCH -DFOURWAYSSE2 -DUSE_SSL
 
