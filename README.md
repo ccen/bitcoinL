@@ -1,5 +1,3 @@
-[TOC]
-
 
 # 如何山寨比特币
 这个项目基于[bitcoin v0.3.24](https://github.com/bitcoin/bitcoin/releases/tag/v0.3.24)，通过修改源码中的参数，建立一个独立的对等网络，与原本的比特币互不兼容。
@@ -78,7 +76,7 @@
 假设Ubuntu的ip是1.2.3.4，先启动Ubuntu的bitcoind，然后启动Win7的bitcoin客户端连接Ubuntu节点。
 
 1.在Ubuntu上设置rpcpassword
-> echo rpcpassword=*** > ~/.bitcoin/bitcoin.conf
+> mkdir -p ~/.bitcoin && echo rpcpassword=*** > ~/.bitcoin/bitcoin.conf
 
 2.在Ubuntu运行bitcoind
 > ./bitcoind -gen
