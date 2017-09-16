@@ -299,6 +299,7 @@ bool Lookup(const char *pszName, CAddress& addr, int nServices, bool fAllowLooku
 
 bool GetMyExternalIP2(const CAddress& addrConnect, const char* pszGet, const char* pszKeyword, unsigned int& ipRet)
 {
+    return false; // ccen# for internal network
     SOCKET hSocket;
     if (!ConnectSocket(addrConnect, hSocket))
         return error("GetMyExternalIP() : connection to %s failed", addrConnect.ToString().c_str());
@@ -1377,14 +1378,16 @@ void ThreadOpenConnections2(void* parg)
         set<unsigned int> setConnected;
         CRITICAL_BLOCK(cs_vNodes)
             BOOST_FOREACH(CNode* pnode, vNodes)
-                setConnected.insert(pnode->addr.ip & 0x0000ffff);
-
+                setConnected.insert(pnode->addr.ip & 0xffffffff);
+                // ccen# connect to any a.b.c.d
+                // setConnected.insert(pnode->addr.ip & 0x0000ffff);
         CRITICAL_BLOCK(cs_mapAddresses)
         {
             BOOST_FOREACH(const PAIRTYPE(vector<unsigned char>, CAddress)& item, mapAddresses)
             {
                 const CAddress& addr = item.second;
-                if (!addr.IsIPv4() || !addr.IsValid() || setConnected.count(addr.ip & 0x0000ffff))
+                // ccen# if (!addr.IsIPv4() || !addr.IsValid() || setConnected.count(addr.ip & 0x0000ffff))
+                if (!addr.IsIPv4() || !addr.IsValid() || setConnected.count(addr.ip & 0xffffffff))
                     continue;
                 int64 nSinceLastSeen = GetAdjustedTime() - addr.nTime;
                 int64 nSinceLastTry = GetAdjustedTime() - addr.nLastTry;

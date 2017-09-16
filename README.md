@@ -60,7 +60,6 @@
 ## 必须的修改
 - 删除hard coding的[checkpoint](https://github.com/ccen/bitcoinL/commit/497ba11977a7a62820aa08f8cd284f61fc91604f#commitcomment-21573593)
 - 改写hard coding的区块高度[nTotalBlocksEstimate](https://github.com/ccen/bitcoinL/commit/246266d0d608e9dea5af656930b8ceb864981997#commitcomment-21573531)
-- 允许挖矿[fGenerateBitcoins](https://github.com/ccen/bitcoinL/commit/246266d0d608e9dea5af656930b8ceb864981997#commitcomment-21573549)
 - 删除种子节点[pnSeed](https://github.com/ccen/bitcoinL/commit/497ba11977a7a62820aa08f8cd284f61fc91604f#commitcomment-21573607)
 - 跳过[IRC连接](https://github.com/ccen/bitcoinL/commit/497ba11977a7a62820aa08f8cd284f61fc91604f#commitcomment-21573625)
 - 跳过[DNSSeed发现](https://github.com/ccen/bitcoinL/commit/497ba11977a7a62820aa08f8cd284f61fc91604f#commitcomment-21573666)

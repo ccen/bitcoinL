@@ -56,7 +56,7 @@ double dHashesPerSec;
 int64 nHPSTimerStart;
 
 // Settings
-int fGenerateBitcoins = true;
+int fGenerateBitcoins = false;
 int64 nTransactionFee = 0;
 CAddress addrIncoming;
 int fLimitProcessors = true; // ccen# saving energy
@@ -650,7 +650,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 // ccen# set target time
 unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast)
 {
-    const int64 nTargetTimespan = 20 * 60; // two weeks
+    const int64 nTargetTimespan = 20 * 60;
     const int64 nTargetSpacing = 1 * 60;
     const int64 nInterval = nTargetTimespan / nTargetSpacing;
 

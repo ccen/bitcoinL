@@ -308,8 +308,11 @@ public:
 
     bool IsRoutable() const
     {
+        return IsValid();
+        /* ccen# for internal networking
         return IsValid() &&
             !(IsRFC1918() || IsRFC3927() || IsLocal());
+        */
     }
 
     bool IsValid() const
