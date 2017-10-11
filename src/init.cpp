@@ -522,6 +522,24 @@ bool AppInit2(int argc, char* argv[])
 #endif
     }
 
+    // ccen# set nTargetSpacing, nInterval as command line arguments
+    if (mapArgs.count("-spacing"))
+    {
+        int64 nNewSpacing = GetArg("-spacing", 10 * 60);
+        if (nNewSpacing > 0 && nNewSpacing < 6000)
+            nTargetSpacing = nNewSpacing;
+        printf("nTargetTimespan = %"PRI64d"\n", nTargetSpacing);
+    }
+
+    if (mapArgs.count("-interval"))
+    {
+        int nNewInterval = GetArg("-interval", 2016);
+        if (nNewInterval > 0 && nNewInterval < 2016)
+            nInterval = nNewInterval;
+        printf("nInterval = %"PRI64d"\n", nInterval);
+    }
+
+
     //
     // Create the main window and start the node
     //

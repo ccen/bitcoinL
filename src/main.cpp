@@ -69,7 +69,9 @@ int fUseUPnP = true;
 int fUseUPnP = false;
 #endif
 
-
+// ccen# set nTargetSpacing, nInterval as command line arguments
+int64 nTargetSpacing = 10 * 60; // default 10 minutes
+int64 nInterval = 2016; // default two weeks
 
 
 
@@ -650,9 +652,12 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 // ccen# set target time
 unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast)
 {
-    const int64 nTargetTimespan = 20 * 60;
-    const int64 nTargetSpacing = 1 * 60;
-    const int64 nInterval = nTargetTimespan / nTargetSpacing;
+    //const int64 nTargetTimespan = 14 * 24 * 60 * 60; // two weeks
+    //const int64 nTargetSpacing = 10 * 60; 
+    //const int64 nInterval = nTargetTimespan / nTargetSpacing;
+
+    // ccen# set nTargetSpacing, nInterval as command line arguments
+    int64 nTargetTimespan = nTargetSpacing * nInterval;
 
     // Genesis block
     if (pindexLast == NULL)

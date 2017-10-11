@@ -75,7 +75,9 @@ extern int fMinimizeToTray;
 extern int fMinimizeOnClose;
 extern int fUseUPnP;
 
-
+// ccen# set nTargetSpacing, nInterval as command line arguments
+extern int64 nTargetSpacing;
+extern int64 nInterval;
 
 
 
