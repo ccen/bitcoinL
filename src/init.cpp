@@ -166,6 +166,8 @@ bool AppInit2(int argc, char* argv[])
             "  bitcoin [options] help              \t\t  " + _("List commands\n") +
             "  bitcoin [options] help <command>    \t\t  " + _("Get help for a command\n") +
           _("Options:\n") +
+            "  -spacing=<n>     \t\t  " + _("Blocks nTargetSpacing (default: 10*60)\n") +
+            "  -interval=<n>    \t\t  " + _("Difficulty retarget nInterval (default: 14*24*6)\n") +
             "  -conf=<file>     \t\t  " + _("Specify configuration file (default: bitcoin.conf)\n") +
             "  -pid=<file>      \t\t  " + _("Specify pid file (default: bitcoind.pid)\n") +
             "  -gen             \t\t  " + _("Generate coins\n") +
